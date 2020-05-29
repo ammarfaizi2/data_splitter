@@ -4,13 +4,12 @@ BASEDIR = $(shell pwd)
 # Compiler and linker options.
 CC = gcc
 TARGET_BIN = data_splitter
-INCLUDE_DIR = src/include
-
+INCLUDE_DIR = include
+SOURCES_DIR = src/data_splitter
 ROOT_DEPDIR = .deps
 
-COMPILER_FLAGS = -fasynchronous-unwind-tables -Ofast
+COMPILER_FLAGS = -I${INCLUDE_DIR} -fasynchronous-unwind-tables -Ofast
 
-SOURCES_DIR = src/data_splitter
 SOURCES = $(shell find ${SOURCES_DIR} -name '*.c')
 OBJECTS = $(SOURCES:%=%.o)
 DEPFILES = $(SOURCES:%=${ROOT_DEPDIR}/%.d)
